@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "886768638807",
+    "project_id": "trashtrackmeow",
+    "storage_bucket": "trashtrackmeow.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:886768638807:android:1c8ad5902307cc020a7c12",
+        "android_client_info": {
+          "package_name": "com.kairos.trashtrack"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAK_NP3tFzZVr4ukKh2Q1TBXUguF49b-7A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

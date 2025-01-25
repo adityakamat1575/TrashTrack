@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello World!"
+        />
+
+
+
+    <Button
+        android:id="@+id/Garbagett"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Trash Pickup Timetable"
+        />
+
+    <Button
+        android:id="@+id/SortingGuide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sorting Guide" />
+    <Button
+        android:id="@+id/Alert"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Alert" />
+    <Button
+        android:id="@+id/Map"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Map" />
+    <Button
+        android:id="@+id/Community"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Community" />
+
+    <Button
+        android:id="@+id/detail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="WorkerDetails"
+        />
+    <Button
+        android:id="@+id/Educate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Education"
+        />
+    <Button
+    android:id="@+id/Schedule"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Schedule Reminder (Server Side)" />
+
+    <Button
+        android:id="@+id/Signout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sign Out"
+        />
+
+</LinearLayout>

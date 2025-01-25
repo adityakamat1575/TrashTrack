@@ -1,0 +1,35 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Log Waste Disposal"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:gravity="center" />
+
+    <Spinner
+        android:id="@+id/spinnerWasteType"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/waste_types"
+        android:prompt="@string/spinner_prompt" />
+
+
+    <EditText
+        android:id="@+id/etWasteWeight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Weight (kg)"
+        android:inputType="numberDecimal"/>
+
+    <Button
+        android:id="@+id/btnSubmitDisposal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Submit"/>
+</LinearLayout>

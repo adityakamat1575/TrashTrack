@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">TrashTrack</string>
+    <string name="spinner_prompt">Select Waste Type</string>
+    <string name="error_fill_fields">error_fill_fields</string>
+    <string name="success_discussion_added">success_discussion_added</string>
+    <string name="error_empty_comment">error_empty_comment\n</string>
+    <string name="comment_added_success">comment_added_success</string>
+    <string name="default_title">default_title</string>
+    <string name="default_description">default_description</string>
+    <string name="error_enter_weight">Please enter the weight!</string>
+    <string name="error_invalid_weight">Please enter a valid number for weight!</string>
+    <string name="error_user_not_logged_in">User not logged in. Please log in first.</string>
+    <string name="success_disposal_logged">Disposal logged! Points earned: %1$d</string>
+    <string name="reduce_reuse_recycle">Reduce, Reuse, Recycle</string>
+    <string name="reduce_reuse_recycle_desc">Learn how to minimize waste.</string>
+    <string name="composting">Composting 101</string>
+    <string name="composting_desc">Understand the basics of composting.</string>
+    <string name="hazardous_waste">Hazardous Waste</string>
+    <string name="hazardous_waste_desc">How to handle hazardous waste safely.</string>
+    <string name="ewaste_management">E-Waste Management</string>
+    <string name="ewaste_management_desc">Tips for recycling electronics.</string>
+
+
+    <string-array name="waste_types">
+        <item>Plastic</item>
+        <item>Organic</item>
+        <item>Metal</item>
+        <item>Paper</item>
+        <item>Glass</item>
+    </string-array>
+
+
+</resources>
