@@ -19,6 +19,7 @@
     <string name="hazardous_waste_desc">How to handle hazardous waste safely.</string>
     <string name="ewaste_management">E-Waste Management</string>
     <string name="ewaste_management_desc">Tips for recycling electronics.</string>
+    <string name="resource_image_desc" />
 
 
     <string-array name="waste_types">

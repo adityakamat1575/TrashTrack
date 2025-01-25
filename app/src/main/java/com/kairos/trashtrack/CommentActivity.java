@@ -6,31 +6,28 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 public class CommentActivity extends AppCompatActivity {
 
-    private RecyclerView recyclerView;
     private EditText commentEditText;
     private Button submitCommentButton;
     private FirebaseFirestore firestore;
-    private CommentAdapter adapter;
-    private ArrayList<Comment> comments;
+    private LinearLayout commentsContainer;
     private String discussionId;
     private ProgressBar progressBar;
 
@@ -39,17 +36,12 @@ public class CommentActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_comment);
 
-        recyclerView = findViewById(R.id.recyclerViewComments);
         commentEditText = findViewById(R.id.editTextComment);
         submitCommentButton = findViewById(R.id.buttonSubmitComment);
         progressBar = findViewById(R.id.progressBarComments);
+        commentsContainer = findViewById(R.id.commentsContainer);
 
         firestore = FirebaseFirestore.getInstance();
-        comments = new ArrayList<>();
-        adapter = new CommentAdapter(comments, this);
-
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(adapter);
 
         // Get the discussionId from the intent
         discussionId = getIntent().getStringExtra("discussionId");
@@ -78,14 +70,25 @@ public class CommentActivity extends AppCompatActivity {
                         return;
                     }
 
+                    // Clear the existing comments
+                    commentsContainer.removeAllViews();
+
                     for (DocumentChange documentChange : value.getDocumentChanges()) {
                         if (documentChange.getType() == DocumentChange.Type.ADDED) {
                             Comment comment = documentChange.getDocument().toObject(Comment.class);
-                            comments.add(comment);
-                            adapter.notifyItemInserted(comments.size() - 1);
+                            addCommentToView(comment);
                         }
                     }
                 });
+    }
+
+    private void addCommentToView(Comment comment) {
+        // Create a new TextView for the comment
+        TextView commentTextView = new TextView(this);
+        commentTextView.setText(comment.getCommentText());
+        commentTextView.setPadding(0, 10 , 0, 10);
+        commentTextView.setTextSize(16);
+        commentsContainer.addView(commentTextView);
     }
 
     private void addComment() {

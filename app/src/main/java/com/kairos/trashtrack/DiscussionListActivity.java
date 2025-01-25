@@ -4,26 +4,21 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.ListenerRegistration;
 
-import java.util.ArrayList;
-
 public class DiscussionListActivity extends AppCompatActivity {
 
-    private RecyclerView recyclerView;
-    private DiscussionAdapter adapter;
-    private ArrayList<Discussion> discussions;
+    private LinearLayout discussionsContainer;
     private FirebaseFirestore firestore;
     private Button addDiscussionButton;
     private ProgressBar progressBar;
@@ -36,19 +31,13 @@ public class DiscussionListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_discussion_list);
 
         // Initialize views
-        recyclerView = findViewById(R.id.recyclerView);
+        discussionsContainer = findViewById(R.id.discussionsContainer);
         addDiscussionButton = findViewById(R.id.addDiscussionButton);
         progressBar = findViewById(R.id.progressBar);
         emptyStateText = findViewById(R.id.emptyStateText);
 
-        // Initialize Firestore and discussions list
+        // Initialize Firestore
         firestore = FirebaseFirestore.getInstance();
-        discussions = new ArrayList<>();
-        adapter = new DiscussionAdapter(discussions, this);
-
-        // Set up RecyclerView
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(adapter);
 
         // Show progress bar initially
         progressBar.setVisibility(View.VISIBLE);
@@ -75,18 +64,34 @@ public class DiscussionListActivity extends AppCompatActivity {
 
                     if (value != null && value.isEmpty()) {
                         emptyStateText.setVisibility(View.VISIBLE);
+                        discussionsContainer.removeAllViews(); // Clear previous discussions
                     } else {
                         emptyStateText.setVisibility(View.GONE);
+                        discussionsContainer.removeAllViews(); // Clear previous discussions
                     }
 
                     for (DocumentChange documentChange : value.getDocumentChanges()) {
                         if (documentChange.getType() == DocumentChange.Type.ADDED) {
                             Discussion discussion = documentChange.getDocument().toObject(Discussion.class);
-                            discussions.add(discussion);
-                            adapter.notifyItemInserted(discussions.size() - 1);
+                            addDiscussionToView(discussion);
                         }
                     }
                 });
+    }
+
+    private void addDiscussionToView(Discussion discussion) {
+        // Create a new TextView for the discussion
+        TextView discussionTextView = new TextView(this);
+        discussionTextView.setText(discussion.getTitle()); // Assuming Discussion has a getTitle() method
+        discussionTextView.setPadding(0, 10, 0, 10);
+        discussionTextView.setTextSize(18);
+        discussionTextView.setOnClickListener(v -> {
+            // Handle discussion click, e.g., navigate to CommentActivity
+            Intent intent = new Intent(DiscussionListActivity.this, CommentActivity.class);
+            intent.putExtra("discussionId", discussion.getId()); // Assuming Discussion has a getId() method
+            startActivity(intent);
+        });
+        discussionsContainer.addView(discussionTextView);
     }
 
     @Override

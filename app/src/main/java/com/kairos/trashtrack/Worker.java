@@ -17,4 +17,8 @@ public class Worker {
     public String getCategory() {
         return category;
     }
+
+    public String getPosition() {
+        return null;
+    }
 }

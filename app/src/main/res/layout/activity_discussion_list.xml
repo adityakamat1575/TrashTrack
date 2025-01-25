@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,10 +9,7 @@
         android:id="@+id/addDiscussionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add Discussion"
-        android:layout_gravity="end"
-        android:backgroundTint="@android:color/holo_blue_light"
-        android:textColor="@android:color/white" />
+        android:text="discussion" />
 
     <ProgressBar
         android:id="@+id/progressBar"
@@ -22,18 +20,18 @@
 
     <TextView
         android:id="@+id/emptyStateText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="no_discussions"
+        android:visibility="gone"
+        android:layout_gravity="center"
+        android:textSize="18sp" />
+
+    <LinearLayout
+        android:id="@+id/discussionsContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="No discussions available"
-        android:textSize="16sp"
-        android:textAlignment="center"
-        android:visibility="gone"
-        android:layout_marginTop="16dp" />
+        android:orientation="vertical"
+        android:paddingTop="16dp" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:scrollbars="vertical" />
 </LinearLayout>

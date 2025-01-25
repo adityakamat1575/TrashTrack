@@ -40,5 +40,9 @@ public class Discussion {
     public void setTimestamp(long timestamp) {
         this.timestamp = timestamp;
     }
+
+    public boolean getId() {
+        return false;
+    }
 }
 

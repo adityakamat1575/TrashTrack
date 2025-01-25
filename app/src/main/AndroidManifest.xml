@@ -78,30 +78,11 @@
         <activity
             android:name=".LogDisposalActivity"
             android:exported="false" />
-        <activity
-            android:name=".TrackActivity"
-            android:exported="false" />
-        <activity
-            android:name=".AlertActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MapsActivity"
-            android:exported="false" />
-        <activity
-            android:name=".WasteReminderWorker"
-            android:exported="false" />
-        <activity
-            android:name=".SortingGuide"
-            android:exported="false" />
+
         <activity
             android:name=".Register"
             android:exported="false" />
-        <activity
-            android:name=".LoginActivity"
-            android:exported="false" />
-        <activity
-            android:name=".GarbageTT"
-            android:exported="false" />
+
         <activity
             android:name=".MainActivity"
             android:exported="true">
