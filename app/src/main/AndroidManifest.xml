@@ -55,6 +55,15 @@
         <activity
             android:name=".MapActivity"
             android:exported="false" />
+        <activity android:name=".GarbageTT"
+            android:exported="false"/>
+        <activity android:name=".SortingGuide"
+            android:exported="false"/>
+        <activity android:name=".TrackActivity"
+            android:exported="false"/>
+        <activity android:name=".LoginActivity"
+            android:exported="false"/>
+
 
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
