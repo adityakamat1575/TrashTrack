@@ -31,63 +31,54 @@ public class MainActivity extends AppCompatActivity {
             mAuth.signOut();
             Intent signoutIntent = new Intent(MainActivity.this, LoginActivity.class);
             startActivity(signoutIntent);
-            finish();
         });
 
         trashtt = findViewById(R.id.Garbagett);
         trashtt.setOnClickListener(view -> {
             Intent garbage = new Intent(MainActivity.this, GarbageTT.class);
             startActivity(garbage);
-            finish();
         });
 
         sort = findViewById(R.id.SortingGuide);
         sort.setOnClickListener(view -> {
             Intent sortIntent = new Intent(MainActivity.this, SortingGuide.class);
             startActivity(sortIntent);
-            finish();
         });
 
         Alert = findViewById(R.id.Alert);
         Alert.setOnClickListener(view -> {
             Intent alertIntent = new Intent(MainActivity.this, TrackActivity.class);
             startActivity(alertIntent);
-            finish();
         });
 
         Map = findViewById(R.id.Map);
         Map.setOnClickListener(view -> {
             Intent mapIntent = new Intent(MainActivity.this, MapActivity.class);
             startActivity(mapIntent);
-            finish();
         });
 
         Schedule = findViewById(R.id.Schedule);
         Schedule.setOnClickListener(view -> {
             Intent schIntent = new Intent(MainActivity.this, ScheduleReminder.class);
             startActivity(schIntent);
-            finish();
         });
 
         Community = findViewById(R.id.Community);
         Community.setOnClickListener(view -> {
             Intent communityIntent = new Intent(MainActivity.this, DiscussionListActivity.class);
             startActivity(communityIntent);
-            finish();
         });
 
         details = findViewById(R.id.detail);
         details.setOnClickListener(view -> {
             Intent detailIntent = new Intent(MainActivity.this, workersDetail.class);
             startActivity(detailIntent);
-            finish();
         });
 
         educate = findViewById(R.id.Educate);
         educate.setOnClickListener(view -> {
             Intent eduIntent = new Intent(MainActivity.this, ResourceActivity.class);
             startActivity(eduIntent);
-            finish();
         });
     }
 
